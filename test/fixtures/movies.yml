@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  genere: MyString
+  descripton: MyText
+  cast: MyText
+
+two:
+  title: MyString
+  genere: MyString
+  descripton: MyText
+  cast: MyText

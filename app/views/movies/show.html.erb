@@ -1,3 +1,35 @@
-<%= render 'form'%>
-<%= link_to 'Home',movies_path  %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="<%=@movie.image_url%>" style="height:500px; width:400px"/>
+      </div>
+      <div class="col-md-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Title:</th>
+              <th>Description:</th>
+              <th>Genere:</th>
+              <th>Cast:</th>
+              <th>Rating:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <td>  <%= @movie.title %></td>
+            <td>  <%= @movie.descripton %></td>
+            <td>  <%= @movie.genere %> </td>
+            <td>  <%= @movie.cast %></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      </div>
+    </div>
+  </div>
+<%=link_to "Edit" ,edit_movie_path(@movie)%>
+<%= link_to 'Home',movies_path %>
 <%= link_to 'Newmovie',new_movie_path%>

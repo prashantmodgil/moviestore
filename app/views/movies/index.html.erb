@@ -3,3 +3,16 @@
 </h1>
 <%= image_tag "box", class: "images_header"%>
 <%= link_to 'newmovie', new_movie_path %>
+
+
+<div class="row">
+    <% @movie.each do |m|%>
+    <div class="col-md-3">
+      <div class= "thumbnail">
+        <a href="<%= movie_path(m)%>">
+          <img src="<%= m.image_url%>" class='image' alt="<%= m.title %>" width="100%" height="600" >
+        </a>
+      </div>
+    </div>
+    <%end%>
+  </div

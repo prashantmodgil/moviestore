@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
         if @movie
           redirect_to movie_path(@movie) ,notice: "movie Successfully Saved"
         else
-          render :edit
+          renderails migration change column type integer to dater :edit
         end
       end
 
@@ -46,6 +46,6 @@ class MoviesController < ApplicationController
 
  private
    def movie_params
-     params.require(:movie).permit(:title, :genere, :descripton, :cast, :image)
+     params.require(:movie).permit(:title, :genere, :descripton, :cast, :image, :year)
    end
 end

@@ -7,9 +7,13 @@
 
 
 <%= image_tag "box", class: "images_header"%>
-<%= link_to 'newmovie', new_movie_path %>
-
-
+<%= link_to 'Newmovie', new_movie_path %>
+<%if ! user_signed_in?%>
+  <%= link_to 'SignUp',new_user_registration_path%>
+  <%= link_to 'SignIn',new_user_session_path%>
+<%else%>
+<%=link_to 'SignOut', destroy_user_session_path , method: :DELETE%>
+<%end%>
 <div class="row">
     <% @movie.each do |m|%>
     <div class="col-md-3">

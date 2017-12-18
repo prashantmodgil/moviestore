@@ -2,16 +2,13 @@
 <%= image_tag "home_icon", class: "images_icon"%>
 </h1>
 
-
-
-
-
 <%= image_tag "box", class: "images_header"%>
-<%= link_to 'Newmovie', new_movie_path %>
+
 <%if ! user_signed_in?%>
   <%= link_to 'SignUp',new_user_registration_path%>
   <%= link_to 'SignIn',new_user_session_path%>
 <%else%>
+<%= link_to 'Newmovie', new_movie_path %>
 <%=link_to 'SignOut', destroy_user_session_path , method: :DELETE%>
 <%end%>
 <div class="row">

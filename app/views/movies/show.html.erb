@@ -34,3 +34,11 @@
 <%=link_to "Edit" ,edit_movie_path(@movie)%>
 <%= link_to 'Home',movies_path %>
 <%= link_to 'Newmovie',new_movie_path%>
+
+
+<h2>Comments</h2>
+<% @movie.comments.each do |c| %>
+<%= render partial: "comments/comment",locals:{comment: c }%>
+<%end%>
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>

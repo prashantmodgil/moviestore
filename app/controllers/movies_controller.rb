@@ -31,8 +31,8 @@ class MoviesController < ApplicationController
   end
 
     def update
-      @movie =  Movie.update(movie_params)
-        if @movie
+      @movie = Movie.update(movie_params)
+        if @movie.save
           redirect_to movie_path(@movie) ,notice: "movie Successfully Saved"
         else
           renderails migration change column type integer to dater :edit

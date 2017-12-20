@@ -1,8 +1,23 @@
 class MoviesController < ApplicationController
+
 before_action :authenticate_user!, except: [ :index,:show]
+
   def index
     @movie = Movie.all
     @movie_carasol = Movie.order('created_at desc').limit(3)
+    @movies_rating = Movie.all
+  end
+
+  def detail
+    search = params[:search]
+    if search
+      capital_search = search.capitalize
+      downcase_search = search.downcase
+      upcase_search = search.upcase
+      title_search = search.titleize
+      @movies_rating = Movie.where("title like? OR title like? OR title like? OR title like?","#{capital_search}%","#{downcase_search}%","#{upcase_search}%","#{title_search}%").order('rating ASC')
+
+    end
   end
 
   def new
@@ -21,8 +36,6 @@ before_action :authenticate_user!, except: [ :index,:show]
   def edit
     @movie =  Movie.find(params[:id])
   end
-
-
 
   def destroy
     @movie = Movie.find(params[:id])
@@ -44,7 +57,6 @@ before_action :authenticate_user!, except: [ :index,:show]
   def show
     @movie = Movie.find(params[:id])
   end
-
 
  private
    def movie_params

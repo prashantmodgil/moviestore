@@ -1,122 +1,120 @@
 <div class = "container">
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<h3>
-				Welcome To Movie Store
-			</h3>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="carousel slide" id="carousel-247753">
-				<ol class="carousel-indicators">
-					<li class="active" h3. Lorem ipsum dolor sit amet.data-slide-to="0" data-target="#carousel-247753">
-					</li><div class="container-fluid">
-					<li data-slide-to="1" data-target="#carousel-247753">
-					</li>
-					<li data-slide-to="2" data-target="#carousel-247753">
-					</li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="item active">
-        		<img alt="Carousel Bootstrap First" src= <%= @movie_carasol.second.image_url%> >
-						<div class="carousel-caption">
-							<h4>
-								<%= @movie_carasol.second.title %>
-							</h4>
-							<p>
-                <%= @movie_carasol.second.descripton %>
-							</p>
-            </div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>
+						Welcome To Movie Store
+					</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="carousel slide" id="carousel-247753">
+						<ol class="carousel-indicators">
+							<li class="active" h3. Lorem ipsum dolor sit amet.data-slide-to="0" data-target="#carousel-247753">
+							</li><div class="container-fluid">
+							<li data-slide-to="1" data-target="#carousel-247753">
+							</li>
+							<li data-slide-to="2" data-target="#carousel-247753">
+							</li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="item active">
+		        		<img alt="Carousel Bootstrap First" src= <%= @movie_carasol.second.image_url%> >
+								<div class="carousel-caption">
+									<h4>
+										<%= @movie_carasol.second.title %>
+									</h4>
+									<p>
+		               					 <%= @movie_carasol.second.descripton %>
+									</p>
+		            </div>
+							</div>
+						</div>
+
+							<div class="item">
+								<img alt="Carousel Bootstrap Second" src=<%= @movie_carasol.third.image_url %> />
+								<div class="carousel-caption">
+									<h4>
+										<%= @movie_carasol.third.title %>
+									</h4>
+									<p>
+		              					  <%= @movie_carasol.third.descripton %>
+									</p>
+								</div>
+							</div>
+							<div class="item">
+								<img alt="Carousel Bootstrap Third" src=<%= Movie.fifth.image_url %> />
+								<div class="carousel-caption">
+									<h4>
+										<%= @movie_carasol.first.title %>
+									</h4>
+									<p>
+		               					 <%= @movie_carasol.first.descripton %>
+									</p>
+								</div>
+							</div>
+						</div> <a class="left carousel-control" href="#carousel-247753" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-247753" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 					</div>
 				</div>
+			</div>
 
-					<div class="item">
-						<img alt="Carousel Bootstrap Second" src=<%= @movie_carasol.third.image_url %> />
-						<div class="carousel-caption">
-							<h4>
-								<%= @movie_carasol.third.title %>
-							</h4>
-							<p>
-                <%= @movie_carasol.third.descripton %>
-							</p>
-						</div>
-					</div>
-					<div class="item">
-						<img alt="Carousel Bootstrap Third" src=<%= Movie.fifth.image_url %> />
-						<div class="carousel-caption">
-							<h4>
-								<%= Movie.fifth.title %>
-							</h4>
-							<p>
-                <%= Movie.second.descripton %>
+			<div class="row">
+				<div class="col-md-12">
+					<nav class="navbar navbar-default" role="navigation">
+						<div class="navbar-header">
 
-							</p>
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+							</button> <a class="navbar-brand" href="#">MOVIES</a>
 						</div>
-					</div>
-				</div> <a class="left carousel-control" href="#carousel-247753" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-247753" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li class="active">
+		              		<%if ! user_signed_in?%>
+							<%= link_to 'SignUp',new_user_registration_path%>
+								</li>
+								<li>
+								  <%= link_to 'SignIn',newdetail_user_session_path%>
+								</li>
+
+		            		<%else%>
+		            		<li>
+		            		<%= link_to 'Newmovie', new_movie_path %>
+		          			</li>
+					         <li>
+					         <%=link_to 'SignOut', destroy_user_session_path , method: :DELETE%>
+					         </li>
+					         <%end%>
+					     </ul>
+
+
+		            <%= form_tag movies_detail_path, :method => 'get',class:"navbar-form mavbar-left" do %>
+		                <div class="form-group">
+		                <%= text_field_tag :search, params[:search],class:"form-control" %>
+		                </div>
+		              	<%=submit_tag "Search",:name=>nil,class:"btn btn-default"%>
+						<%end%>
+
+		            </form>
+		        </div>
+				</nav>
 			</div>
 		</div>
-	</div>
 
 
 
 
 
-	<div class="row">
-		<div class="col-md-12">
-			<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-					</button> <a class="navbar-brand" href="#">MOVIES</a>
-				</div>
-
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active">
-              <%if ! user_signed_in?%>
-							<%= link_to 'SignUp',new_user_registration_path%>
-						</li>
-						<li>
-						  <%= link_to 'SignIn',new_user_session_path%>
-						</li>
-            <%else%>
-            <%= link_to 'Newmovie', new_movie_path %>
-          </li>
-          <li>
-          <%=link_to 'SignOut', destroy_user_session_path , method: :DELETE%>
-          </li>
-          <%end%>
-
-
-
-
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" />
-						</div>
-						<button type="submit" class="btn btn-default">
-							Search
-						</button>
-					</form>
-        </div>
-			</nav>
-		</div>
-	</div>
-
-
-
-
-
-	<div class="row">
-    <% @movie.each do |m|%>
-      <div class="col-md-4">
-        <a href="<%= movie_path(m)%>">
-        <img src="<%= m.image_url%>" class='image' alt="<%= m.title %>" width="100%" height="600" >
-		</div>
-    <%end%>
-  </div>
+		<div class="row">
+	    	<% @movie.each do |m|%>
+	     	 <div class="col-md-4">
+	      	  <a href="<%= movie_path(m)%>">
+	       	 <img src="<%= m.image_url%>" class='image' alt="<%= m.title %>" width="100%" height="600" >
+	       	</a>
+			 </div>
+	    	<%end%>
+	  	</div>
+</div>
 </div>

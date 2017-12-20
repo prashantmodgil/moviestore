@@ -1,11 +1,12 @@
 class MoviesController < ApplicationController
-
+before_action :authenticate_user!, except: [ :index,:show]
   def index
     @movie = Movie.all
+    @movie_carasol = Movie.order('created_at desc').limit(3)
   end
 
   def new
-    @movie = current_user.movies.build
+  @movie = current_user.movies.build
   end
 
   def create
@@ -31,11 +32,12 @@ class MoviesController < ApplicationController
   end
 
     def update
-      @movie = Movie.update(movie_params)
-        if @movie.save
-          redirect_to movie_path(@movie) ,notice: "movie Successfully Saved"
+      @movie = Movie.find(params[:id])
+
+        if @movie.update(movie_params)
+          redirect_to movie_path(@movie) ,notice: "movie Successfully Updated"
         else
-          renderails migration change column type integer to dater :edit
+          render :edit
         end
       end
 

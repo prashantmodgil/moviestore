@@ -20,29 +20,26 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="item active">
-          <div class="container-fluid">
-						<img alt="Carousel Bootstrap First" src= <%= Movie.second.image_url %> >
+        		<img alt="Carousel Bootstrap First" src= <%= @movie_carasol.second.image_url%> >
 						<div class="carousel-caption">
-
 							<h4>
-								<%= Movie.second.title %>
+								<%= @movie_carasol.second.title %>
 							</h4>
 							<p>
-                <%= Movie.second.descripton %>
-
+                <%= @movie_carasol.second.descripton %>
 							</p>
-              </div>
-						</div>
+            </div>
 					</div>
+				</div>
 
 					<div class="item">
-						<img alt="Carousel Bootstrap Second" src=<%= Movie.second.image_url %> />
+						<img alt="Carousel Bootstrap Second" src=<%= @movie_carasol.third.image_url %> />
 						<div class="carousel-caption">
 							<h4>
-								<%= Movie.second.title %>
+								<%= @movie_carasol.third.title %>
 							</h4>
 							<p>
-                <%= Movie.second.descripton %>
+                <%= @movie_carasol.third.descripton %>
 							</p>
 						</div>
 					</div>
@@ -109,6 +106,11 @@
 			</nav>
 		</div>
 	</div>
+
+
+
+
+
 	<div class="row">
     <% @movie.each do |m|%>
       <div class="col-md-4">

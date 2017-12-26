@@ -16,7 +16,7 @@ before_action :authenticate_user!, except: [ :index,:show]
       upcase_search = search.upcase
       title_search = search.titleize
       @movies_rating = Movie.where("title like? OR title like? OR title like? OR title like?","#{capital_search}%","#{downcase_search}%","#{upcase_search}%","#{title_search}%").order('rating ASC')
-
+      
     end
   end
 
@@ -56,10 +56,11 @@ before_action :authenticate_user!, except: [ :index,:show]
 
   def show
     @movie = Movie.find(params[:id])
+    @movie_view = View.create(movie_id: @movie.id)
   end
 
  private
    def movie_params
-     params.require(:movie).permit(:title, :genere, :descripton, :cast, :image, :year)
+     params.require(:movie).permit(:title, :genere, :descripton, :cast, :image, :year, :web, :rating)
    end
 end

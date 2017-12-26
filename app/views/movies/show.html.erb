@@ -1,57 +1,89 @@
 <div class = "container">
 <div class="panel panel-default">
   <div class="panel-body">
-    <div class="row">
-      <div class="col-md-4">
-        <img src="<%=@movie.image_url%>" style="height:500px; width:400px"/>
-      </div>
-      <div class="col-md-8">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Title:</th>
-              <th>Description:</th>
-              <th>Genere:</th>
-              <th>Cast:</th>
-              <th>Year:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td>  <%= @movie.title %></td>
-            <td>  <%= @movie.descripton %></td>
-            <td>  <%= @movie.genere %> </td>
-            <td>  <%= @movie.cast %></td>
-            <td>  <%= @movie.year %></td>
-            </tr>
-          </tbody>
-        </table>
 
-      </div>
+    <div class="container-fluid">
+      <%= render 'movies/navbar'%>
+    	<div class="row">
+    		<div class="col-md-4">
+    			  <img src="<%=@movie.image_url%>" style="height:500px; width:100%"/>
+    		</div>
+    		<div class="col-md-8">
+    			<dl>
+    				<dt>
+    					Title:
+    				</dt>
+    				<dd>
+              <%= @movie.title %>
+          	</dd>
+    				<dt>
+              Description:
+    				</dt>
+    				<dd>
+    					<%= @movie.descripton %>
+    				</dd>
+    				<dt>
+    					Genere:
+    				</dt>
+    				<dd>
+    					<%= @movie.genere %>
+    				</dd>
+    				<dt>
+    	         Caste:
+    				</dt>
+    				<dd>
+    					<%= @movie.cast %>
+    				</dd>
+            <dt>
+    	         Year:
+    				</dt>
+    				<dd>
+    			       <%= @movie.year%>
+    				</dd>
+            <dt>
+               Rating:
+            </dt>
+            <dd>
+              <%= @movie.rating%>
+            </dd>
+
+    			</dl>
+    		</div>
+    	</div>
+
+    	<div class="row">
+    		<div class="col-md-6">
+    			<div class="panel panel-default">
+    				<div class="panel-heading">
+    					<h3 class="panel-title">
+    						Comments
+    					</h3>
+    				</div>
+
+            <%  @movie.comments.limit(3).each do |c| %>
+    				<div class="panel-body">
+    					<%= render partial: "comments/comment",locals:{comment: c }%>
+    				</div>
+            <%end%>
+    				<div class="panel-footer">
+              <h2>Add a comment:</h2>
+              <%= render 'comments/form' %>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="col-md-6">
+    		</div>
+    	</div>
+    </div>
 
       </div>
     </div>
   </div>
+
+
+<a class="button" <%= link_to 'Home',movies_path %></a>
+<a class="button" <%= link_to 'Edit',movies_path %></a>
+<a class="button" <%= link_to 'New Movies',movies_path %></a>
 <%=link_to "Edit" ,edit_movie_path(@movie)%>
 <%= link_to 'Home',movies_path %>
 <%= link_to 'Newmovie',new_movie_path%>
-
-
-
-
-
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8">
-      <h2>Comments</h2>
-      <% @movie.comments.each do |c| %>
-      <%= render partial: "comments/comment",locals:{comment: c }%>
-      <%end%>
-      <h2>Add a comment:</h2>
-      <%= render 'comments/form' %>
-      </div>
-		</div>
-		<div class="col-md-4">
-		</div>
-	</div>
-</div>

@@ -1,0 +1,42 @@
+
+<div class="row">
+  <h3 class="text-center text-info">
+				Latest Movies
+			</h3>
+    <% @movie.order('created_at desc').limit(6).each do |m|%>
+     <div class="col-md-4">
+       <div class = "image_sh">
+        <a href="<%= movie_path(m)%>">
+       <img src="<%= m.image_url%>" class='image' alt="<%= m.title %>" width="100%" height="600" >
+      </a>
+   </div>
+ </div>
+    <%end%>
+
+
+    <h3 class="text-center text-info">
+				Most Rated
+			</h3>
+    <% @movies_rating.order('rating desc').limit(6).each do |m|%>
+     <div class="col-md-4">
+       <div class = "image_sh">
+        <a href="<%= movie_path(m)%>">
+       <img src="<%= m.image_url%>" class='image' alt="<%= m.title %>" width="100%" height="600" >
+      </a>
+   </div>
+  </div>
+    <%end%>
+
+    <h3 class="text-center text-info">
+    				Most Veiwed
+    			</h3>
+    <% @movie.order('view_count desc').limit(6).each do |m|%>
+     <div class="col-md-4">
+       <div class = "image_sh">
+        <a href="<%= movie_path(m)%>">
+       <img src="<%= m.image_url%>" class='image' alt="<%= m.title %>" width="100%" height="600" >
+      </a>
+   </div>
+ </div>
+    <%end%>
+  </div>

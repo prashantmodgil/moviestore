@@ -6,12 +6,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <div class = "header-nav" >
-    <%=render "movies/header"%>
-  </div>
+
   </head>
 
   <body>
+    <div class = "header-nav" >
+    <div class="row">
+  <div class="col-md-12">
+
+  
+    <%= image_tag "box" ,width: "100%" ,hieght: "auto" %>
+</div>
+</div>
+
+  </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

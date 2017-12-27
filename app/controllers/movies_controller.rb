@@ -16,7 +16,8 @@ before_action :authenticate_user!, except: [ :index,:show]
       upcase_search = search.upcase
       title_search = search.titleize
       @movies_rating = Movie.where("title like? OR title like? OR title like? OR title like?","#{capital_search}%","#{downcase_search}%","#{upcase_search}%","#{title_search}%").order('rating ASC')
-      
+
+      @movies_view =  Movie.where("title like? OR title like? OR title like? OR title like?","#{capital_search}%","#{downcase_search}%","#{upcase_search}%","#{title_search}%").order('view_count DESC')
     end
   end
 

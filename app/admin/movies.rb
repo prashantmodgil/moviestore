@@ -7,8 +7,7 @@ ActiveAdmin.register Movie do
     column :genere
     column :description
     column :cast
-    column :image<a class="button" <%= link_to 'Edit',edit_movie_path(@movie) %></a>
-
+    column :image
     column :year
     column :web
     column :rating

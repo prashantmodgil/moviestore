@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
     @movie = Movie.all
     @movie_carasol = Movie.order('created_at desc').limit(3)
     @movies_rating = Movie.all
+    @movies_view = Movie.all
   end
 
   def detail
@@ -16,7 +17,6 @@ class MoviesController < ApplicationController
       upcase_search = search.upcase
       title_search = search.titleize
       @movies_rating = Movie.where("title like? OR title like? OR title like? OR title like?","#{capital_search}%","#{downcase_search}%","#{upcase_search}%","#{title_search}%").order('rating ASC')
-
       @movies_view =  Movie.where("title like? OR title like? OR title like? OR title like?","#{capital_search}%","#{downcase_search}%","#{upcase_search}%","#{title_search}%").order('view_count DESC')
     end
   end

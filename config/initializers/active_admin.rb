@@ -6,17 +6,28 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "Moviestore"
 
+  config.footer = "© 2017 Movie Store"
+    config.comments = false
+      config.namespace :admin do |admin|
+        admin.build_menu :utility_navigation do |menu|
+          menu.add label: "© 2017 Movie Store", url: "http://localhost:3000",
+                                          html_options: { target: :blank }
+          admin.add_current_user_to_menu  menu
+        admin.add_logout_button_to_menu menu
+    end
+  end
+
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
-  # config.site_title_link = "/"
+   config.site_title_link = "http://localhost:3000"
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
   #
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
-  # config.site_title_image = "logo.png"
+   config.site_title_image = "user.png"
 
   # == Default Namespace
   #

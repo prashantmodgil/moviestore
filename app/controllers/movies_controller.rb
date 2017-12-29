@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
         if @movie.save
           redcolumn :image_url
-    redirect_to @movie ,notice: "movie Successfully Saved"
+          redirect_to @movie ,notice: "movie Successfully Saved"
         else
           render :new
         end

@@ -1,6 +1,9 @@
 ActiveAdmin.register User do
 
  #actions :all,except:[:new]
+ permit_params :email ,:name , :password ,:image
+ decorate_with UserDecorator
+
   index do
     selectable_column
     id_column
@@ -21,6 +24,7 @@ ActiveAdmin.register User do
         f.input :name
         f.input :password
         f.input :password_confirmation
+        f.input :image
       end
       f.actions
 end

@@ -7,4 +7,9 @@ class User < ApplicationRecord
          :confirmable
          #has_many :movies
          has_many :comments
+
+    #     after_create :send_admin_mail
+#  def send_admin_mail
+#    UserMailer.welcome_email(self).deliver_now
+  #end
 end

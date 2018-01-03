@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
 
- actions :all,except:[:new]
+ actions :all
  permit_params :email ,:name , :password ,:image
  decorate_with UserDecorator
 
@@ -18,6 +18,10 @@ ActiveAdmin.register User do
   filter :name
   filter :email
 
+  action_item :new_user,only: :index do
+
+  
+end
   form do |f|
       f.inputs do
         f.input :email

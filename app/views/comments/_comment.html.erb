@@ -1,4 +1,4 @@
-<p>
+<p class= "fontstyle">
   <strong>Commenter:</strong>
   <%= comment.commenter %>
 </p>
@@ -7,6 +7,7 @@
   <strong>Comment:</strong>
   <%= comment.body %>
 </p>
+
 <p>
   <a class= "button" <%= link_to 'Destroy Comment', [comment.movie, comment],
                method: :delete,

@@ -1,6 +1,13 @@
-<h2>Sign in</h2>
+<html>
+<div class = "container">
 
+<h2>Sign in</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="imgcontainer">
+  <%= image_tag "user.png" ,alt: "User" ,class: "avatar"%>
+</div>
+
+<div class = "form">
 
   <div class="form-group">
   	<%= f.label :email %>
@@ -8,9 +15,10 @@
   </div>
 
   <div class="form-group">
-  	<%= f.label :password %>
-  	<%= f.password_field :password, class: "form-control", required: false %>
-  </div>
+    	<%= f.label :password %>
+    	<%= f.password_field :password, class: "form-control", required: false %>
+    </div>
+
 
   <div class="checkbox">
   	<label>
@@ -19,43 +27,17 @@
   </div>
 
   <div class="form-group">
-  	<%= f.submit "Sign In", class: "btn btn-primary" %>
-  </div>
+  	<%= f.submit "Sign In", class: "button" %>
 
+  </div>
+</div>
 <% end %>
 
+
+<div class="container" style="background-color:#f1f1f1">
 <%= render "devise/shared/links" %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="login">
-	<h1>Login</h1>
-    <form method="post">
-    	<input type="text" name="u" placeholder="Username" required="required" />
-        <input type="password" name="p" placeholder="Password" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
-    </form>
 </div>
-<%= render "devise/shared/links" %>
+
+</div>
+
+</html>

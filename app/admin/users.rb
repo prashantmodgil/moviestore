@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
 
- #actions :all,except:[:new]
+ actions :all,except:[:new]
  permit_params :email ,:name , :password ,:image
  decorate_with UserDecorator
 

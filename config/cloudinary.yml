@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: duua4rsyl
+  api_key: '762482282818219'
+  api_secret: XipObWEeLl5wBBgc2tmjQfn9sko
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: duua4rsyl
+  api_key: '762482282818219'
+  api_secret: XipObWEeLl5wBBgc2tmjQfn9sko
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: duua4rsyl
+  api_key: '762482282818219'
+  api_secret: XipObWEeLl5wBBgc2tmjQfn9sko
+  enhance_image_tag: true
+  static_image_support: false

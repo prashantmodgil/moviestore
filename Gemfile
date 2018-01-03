@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'activeadmin'
 gem 'draper'
+gem 'cloudinary'
 
 
 group :development, :test do

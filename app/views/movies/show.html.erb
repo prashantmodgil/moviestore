@@ -64,17 +64,19 @@
     				</div>
 
             <%  @movie.comments.limit(3).each do |c| %>
-    				<div class="panel-body">
-    					<%= render partial: "comments/comment",locals:{comment: c }%>
-    				</div>
+      				<div class="panel-body">
+      					<%= render partial: "comments/comment",locals:{comment: c }%>
+      				</div>
             <%end%>
     				<div class="panel-footer">
               <h2>Add a comment:</h2>
               <%= render 'comments/form' %>
-    				</div>
+
+            </div>
     			</div>
     		</div>
     		<div class="col-md-6">
+          
     		</div>
     	</div>
     </div>

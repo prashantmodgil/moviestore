@@ -1,5 +1,5 @@
 ActiveAdmin.register Movie do
- permit_params :title, :genere, :descripton, :cast, :image, :year, :web, :rating
+ permit_params :title, :genere, :descripton, :cast, :image, :year, :web, :rating, :view
 
    decorate_with MovieDecorator
  index do
@@ -17,11 +17,12 @@ ActiveAdmin.register Movie do
   end
 
   filter :title
-    filter :genre
+  filter :genre
 
     action_item :new_movie,only: :index do
-      link_to "Automatically Movie Upload", "http://localhost:3000/admin/movies/new?view=automatic"
-    end
+    
+    link_to "Automatically Movie Upload", "http://localhost:3000/admin/movies/new?view=automatic"
+  end
 
     form :html => { :enctype => "multipart/form-data" } do |f|
       f.inputs do

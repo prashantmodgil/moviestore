@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
       else
         redirect_to new_admin_user_path
       end
+    end
 
       private
         def user_params

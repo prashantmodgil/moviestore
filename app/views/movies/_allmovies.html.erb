@@ -12,14 +12,14 @@
    </div>
  </div>
     <%end%>
-    
+
   </div>
 
 
     <h3 class="fontstyle">
 				Most Rated
 			</h3>
-    <%   @movies_rating.order('rating DESC').each do |m|%>
+    <%   @movies_rating.order('rating DESC').limit(6).each do |m|%>
      <div class="col-md-4">
        <div class = "image_sh">
         <a href="<%= movie_path(m)%>">

@@ -2,8 +2,8 @@ class Movie < ApplicationRecord
 mount_uploader :image, ImageUploader
 
 
-has_many :comments
-has_many :views
+has_many :comments ,dependent: :destroy
+has_many :views ,dependent: :destroy
 validates :title, presence: true,
                     length: { minimum: 1 }
 

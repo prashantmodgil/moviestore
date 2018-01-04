@@ -20,9 +20,6 @@
           </li>
 
               <%else%>
-              <li>
-              <%= link_to 'Newmovie', new_movie_path %>
-              </li>
              <li>
              <%=link_to 'SignOut', destroy_user_session_path , method: :DELETE%>
              </li>

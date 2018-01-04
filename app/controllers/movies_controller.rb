@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
      before_action :authenticate_admin_user!,only: [:create]
-  
+
     def index
       @movie = Movie.all
       @movie_carasol = Movie.order('created_at desc').limit(3)

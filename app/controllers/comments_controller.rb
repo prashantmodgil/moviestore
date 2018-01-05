@@ -14,7 +14,7 @@ def create
   end
 
 def destroy
-  debugger
+
     @movie = Movie.find(params[:movie_id])
     @comment = @movie.comments.find(params[:id])
     @comment.destroy

@@ -26,14 +26,14 @@ class MoviesController < ApplicationController
       if params[:view] == "automatic"
           @m = ApiCall.new.api_call(params[:movie][:title])
           if @m == true
-            redirect_to 'http://localhost:3000/admin/movies', notice: "Movie Saved Successfully"
+            redirect_to 'Rails.application.secrets.url/admin/movies', notice: "Movie Saved Successfully"
           else
             redirect_to new_admin_movie_path(view: params[:view]), alert: "Movie Not Found."
           end
       else
           @movie = Movie.new(movie_params)
             if @movie.save
-              redirect_to 'http://localhost:3000/admin/movies', notice: "Your Movie Saved Successfully"
+              redirect_to 'Rails.application.secrets.url/movies', notice: "Your Movie Saved Successfully"
             else
               redirect_to new_admin_movie_path
             end

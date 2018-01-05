@@ -40,7 +40,7 @@ Rails.application.configure do
        domain: 'gmail.com',
        authentication: 'plain',
        user_name: Rails.application.secrets.email,
-       password: Rails.application.secrets.password
+       password: Rails.application.secrets.password,
      }
 
   config.action_mailer.perform_caching = false

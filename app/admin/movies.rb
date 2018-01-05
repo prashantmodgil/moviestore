@@ -19,7 +19,7 @@ ActiveAdmin.register Movie do
   filter :title
   filter :genre
 
-    action_item :new_movie,only: :index do
+    action_item :new_movie,automatically_movie_upload: :index do
 
     link_to "Automatically Movie Upload","#{Rails.application.secrets.url}/admin/movies/new?view=automatic"
   end

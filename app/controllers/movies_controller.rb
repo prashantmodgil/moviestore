@@ -21,6 +21,12 @@ class MoviesController < ApplicationController
       end
     end
 
+
+    def more
+      @movies_rating = Movie.all.order('rating ASC')
+      @movies_view =  Movie.all.order('view_count DESC')
+    end
+
     def create
 
       if params[:view] == "automatic"
@@ -44,6 +50,8 @@ class MoviesController < ApplicationController
     def show
       @movie = Movie.find(params[:id])
       @movie_view = View.create(movie_id: @movie.id)
+      @mr = Movie.find(params[:rating])
+
     end
 
    private

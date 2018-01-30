@@ -23,8 +23,9 @@ class MoviesController < ApplicationController
 
 
     def more
-      @movies_rating = Movie.page(params[:page]).per(6)
-      @movies_view =  Movie.all.order('view_count DESC')
+      @abc = params[:view]
+      @movies_rating = Movie.all.order('rating DESC').page(params[:page]).per(6)
+      @movies_view =  Movie.all.order('view_count DESC').page(params[:page]).per(6)
     end
 
     def create

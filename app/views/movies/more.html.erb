@@ -7,16 +7,16 @@
 				<%= render 'movies/navbar'%>
 				<div class="tabbable" id="tabs-467327">
 					<ul class="nav nav-tabs">
-						<li class="active">
+						<li class="<%=rating_check(@abc)%>" >
 							<a href="#panel-827709" data-toggle="tab">By Ratings</a>
 						</li>
-						<li>
+						<li class= "<%= view_check(@abc) %>">
 							<a href="#panel-277598" data-toggle="tab">By Views</a>
 						</li>
 					</ul>
 					<div class="tab-content">
 
-						<div class="tab-pane active" id="panel-827709">
+						<div class="tab-pane <%=rating_check(@abc)%> id="panel-827709">
 
 							<% if @movies_rating.present? %>
 								<div class="row">
@@ -36,9 +36,9 @@
 								No Movie Present
 							</p>
 							<% end%>
-							<%=paginate @movies_rating%>
 						</div>
-						<div class="tab-pane" id="panel-277598">
+						<%= paginate @movies_rating %>
+						<div class="tab-pane <%= view_check(@abc)%>" id="panel-277598">
 							<% if @movies_view.present? %>
 								<div class="row">
 									<% @movies_view.each do |movies| %>
@@ -57,6 +57,7 @@
 								No Movie Present
 							</p>
 							<% end%>
+							<%= paginate @movies_view %>
 						</div>
 					</div>
 				</div>

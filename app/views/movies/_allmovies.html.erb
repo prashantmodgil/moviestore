@@ -1,40 +1,37 @@
-
 <div class="row">
   <h3 class="fontstyle">
-				Latest Movies
+		Latest Movies
 	</h3>
-    <% @movie.order('created_at desc').limit(6).each do |m|%>
+    <% @movie.order('created_at desc').limit(6).each do |m| %>
      <div class="col-md-4">
        <div class = "image_sh">
-        <a href="<%= movie_path(m)%>">
-       <img src="<%= m.image_url%>" class='image' alt="<%= m.title %>" width="100%" height="600" >
+        <a href="<%= movie_path(m) %>
+        <img src="<%= m.image_url %>" class='image' alt="<%= m.title %>" width="100%" height="600" >
         </a>
        </div>
      </div>
     <%end%>
-
 </div>
 
 <div class="row">
     <h3 class="fontstyle">
-				Most Rated
+	       Most Rated
 		</h3>
-    <%   @movies_rating.order('rating DESC').limit(6).each do |m|%>
+    <% @movies_rating.order('rating DESC').limit(6).each do |m|%>
      <div class="col-md-4">
        <div class = "image_sh">
-        <a href="<%= movie_path(m)%>">
+       <a href="<%= movie_path(m)%>">
        <img src="<%= m.image_url%>" class='image' alt="<%= m.title %>" width="100%" height="600" >
        </a>
        </div>
      </div>
     <%end%>
-    <a class="browse-index" href="movies/more">Browse More</a>
+    <a class="browse-index" href="<%=movies_more_path(view: "rating")%>">Browse More</a>
   </div>
-
 
 <div class="row">
     <h3 class="fontstyle">
-  			Most Veiwed
+  		Most Veiwed
   	</h3>
     <% @movies_view.order('view_count DESC').limit(6).each do |m|%>
      <div class="col-md-4">
@@ -45,5 +42,5 @@
       </div>
      </div>
     <%end%>
-    <a class="browse-index" href="movies/more">Browse More</a>
+    <a class="browse-index" href="<%=movies_more_path(view: "view")%>">Browse More</a>
   </div>

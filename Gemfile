@@ -20,6 +20,7 @@ gem 'activeadmin'
 gem 'draper'
 gem 'cloudinary'
 gem 'chart-js-rails'
+gem 'kaminari'
 
 
 

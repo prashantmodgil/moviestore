@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
 
 
     def more
-      @movies_rating = Movie.all.order('rating ASC')
+      @movies_rating = Movie.page(params[:page]).per(6)
       @movies_view =  Movie.all.order('view_count DESC')
     end
 
@@ -45,7 +45,6 @@ class MoviesController < ApplicationController
             end
       end
     end
-
 
     def show
       @movie = Movie.find(params[:id])

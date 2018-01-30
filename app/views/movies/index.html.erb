@@ -6,39 +6,38 @@
 			<%=render 'slider'%>
 			<%=render 'allmovies' %>
 
+			<canvas id="bar-chart" width="800" height="450"></canvas>
 
-			<canvas id="pie-chart" width="800" height="450"></canvas>
 			<script>
-
-
 			<% names =  Array.new %>
 			<% vii = Array.new %>
-			<% @movie.order('view_count desc').limit(6).each do |m|%>
+			<% @movie.order('view_count desc').limit(3).each do |m|%>
 			<% names.push(m.title) %>
 			<% vii.push(m.view_count) %>
 			<% end %>
 
-			new Chart(document.getElementById("pie-chart"), {
-			    type: 'pie',
+			new Chart(document.getElementById("bar-chart"), {
+			    type: 'bar',
 			    data: {
-			      labels:<%=names%>,
+			      labels:<%= names.inspect.html_safe %>,
 			      datasets: [{
 			        label: "top 6 veiws",
-			        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"."#3b56aa"],
-			        data:vii
+			        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+			        data:<%= vii.inspect.html_safe %>
 			      }]
 			    },
-					<
-					<%debugger%>
-			    options: {
-			      title: {
-			        display: true,
-			        text: 'some of the top movies'
-			      }
+					 options: {
+								scales: {
+											 yAxes: [{
+													ticks: {
+										 							beginAtZero:true
+															 		}
+															}]
+										 }
 			    }
 			});
-
 			</script>
+
 </div>
 </div>
 </div>

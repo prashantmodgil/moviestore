@@ -50,7 +50,7 @@ class MoviesController < ApplicationController
     def show
       @movie = Movie.find(params[:id])
       @movie_view = View.create(movie_id: @movie.id)
-      @mr = Movie.find(params[:rating])
+      @mr = Movie.find(params[:id])
 
     end
 

@@ -1,0 +1,36 @@
+.container
+  .panel.panel-default
+    .panel-body
+      .container-fluid
+        = render 'movies/navbar'
+        .row
+          .col-md-4
+            %img{:src => ""}/
+            = @movie.image_url
+            " style="height:500px; width:100%"&gt;
+          .col-md-8
+            %dl
+              %dt.fontstyle
+                Title:
+              %dd.fonttexts
+              = @movie.title
+          %dt.fontstyle
+            Description:
+            %dd.fonttexts
+          = @movie.descripton
+        %dt.fontstyle
+          Genere:
+          %dd.fonttexts
+        = @movie.genere
+      %dt.fontstyle
+        Caste:
+        %dd.fonttexts
+      = @movie.cast
+    %dt.fontstyle
+      Year:
+      %dd.fonttexts
+    = @movie.year
+  %dt.fontstyle
+    Rating:
+    %dd.fonttexts
+  = @movie.rating
